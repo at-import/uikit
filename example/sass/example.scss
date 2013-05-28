@@ -1,0 +1,99 @@
+@import "compass";
+
+$form-color: #3e63c4;
+$form-radius: 3px;
+
+ul.examples {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+[checkbox] {
+  input {
+    display: none;
+  }
+  input + i:before {
+    content: "\00A0";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    overflow: hidden;
+    margin: 0 .25em 0 0;
+    background-color: $form-color;
+    border-radius: $form-radius;
+    @if lightness($form-color) < 60% {
+      color: white;
+    }
+  }
+  input:checked + i:before {
+    background-color: $form-color;
+    content: "\2713";
+  }
+}
+
+[radio] {
+  input {
+    display: none;
+  }
+  &:checked + i:before {
+    content: "\00A0";
+    border-width: .25em;
+    margin-bottom: -.25em;
+  }
+  input + i:before {
+    @include box-sizing(border-box);
+    content: "\00A0";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    overflow: hidden;
+    margin: 0 .25em 0 0;
+    background-color: $form-color;
+    border-radius: $form-radius;
+    border-radius: .5em;
+    border: .25em solid $form-color;
+  }
+  input:checked + i:before {
+    @if lightness($form-color) < 60% {
+      background-color: white;
+    }
+    @else {
+      background-color: black;
+    }
+  }
+}
+
+[toggle] {
+  input {
+    display: none;
+  }
+  &:checked + i:before {
+    content: "\00A0";
+    border-width: .25em;
+    margin-bottom: -.25em;
+  }
+  input + i:before {
+    content: "\00A0";
+    display: inline-block;
+    width: 2em;
+    height: 1em;
+    line-height: 1;
+    overflow: hidden;
+    margin: 0 .25em 0 0;
+    background-color: $form-color;
+    border-radius: $form-radius;
+    border-radius: .5em;
+  }
+  input:checked + i:after {
+    @if lightness($form-color) < 60% {
+      background-color: white;
+    }
+    @else {
+      background-color: black;
+    }
+  }
+}
+
