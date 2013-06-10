@@ -2,6 +2,11 @@
 
 $form-color: #3e63c4;
 $form-radius: 3px;
+$form-aperture: 80%;
+
+html {
+  font-size: 2em;
+}
 
 ul.examples {
   list-style: none;
@@ -37,32 +42,35 @@ ul.examples {
   input {
     display: none;
   }
-  &:checked + i:before {
-    content: "\00A0";
-    border-width: .25em;
-    margin-bottom: -.25em;
-  }
-  input + i:before {
-    @include box-sizing(border-box);
-    content: "\00A0";
+  input + i {
+    position: relative;
     display: inline-block;
     width: 1em;
     height: 1em;
-    line-height: 1;
-    overflow: hidden;
     margin: 0 .25em 0 0;
     background-color: $form-color;
     border-radius: $form-radius;
     border-radius: .5em;
-    border: .25em solid $form-color;
   }
-  input:checked + i:before {
+  input + i:after {
+    content: "";
+    width: $form-aperture / 100% * 1em;
+    height: $form-aperture / 100% * 1em;
+    position: absolute;
+    top: ($form-aperture / 100% - 1) * -.5em;
+    left: ($form-aperture / 100% - 1) * -.5em;
+    border-radius: 50%;
+    opacity: 0;
+    @include transition(opacity .25s);
     @if lightness($form-color) < 60% {
       background-color: white;
     }
     @else {
       background-color: black;
     }
+  }
+  input:checked + i:after {
+    opacity: 1;
   }
 }
 
@@ -70,24 +78,25 @@ ul.examples {
   input {
     display: none;
   }
-  &:checked + i:before {
-    content: "\00A0";
-    border-width: .25em;
-    margin-bottom: -.25em;
-  }
-  input + i:before {
-    content: "\00A0";
+  input + i {
+    position: relative;
     display: inline-block;
     width: 2em;
     height: 1em;
-    line-height: 1;
-    overflow: hidden;
     margin: 0 .25em 0 0;
     background-color: $form-color;
     border-radius: $form-radius;
     border-radius: .5em;
   }
-  input:checked + i:after {
+  input + i:after {
+    content: "";
+    width: $form-aperture / 100% * 1em;
+    height: $form-aperture / 100% * 1em;
+    position: absolute;
+    top: ($form-aperture / 100% - 1) * -.5em;
+    left: ($form-aperture / 100% - 1) * -.5em;
+    border-radius: 50%;
+    @include transition(margin-left .25s);
     @if lightness($form-color) < 60% {
       background-color: white;
     }
@@ -95,5 +104,21 @@ ul.examples {
       background-color: black;
     }
   }
+  input:checked + i:after {
+    margin-left: 1em;
+  }
 }
 
+button, [type="button"] {
+  background-color: $form-color;
+  border: none;
+  border-radius: $form-radius;
+  font-size: 1em;
+  padding: .25em .5em;
+  @if lightness($form-color) < 60% {
+    color: white;
+  }
+  @else {
+    color: black;
+  }
+}
