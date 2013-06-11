@@ -12,6 +12,18 @@ ul.examples {
   list-style: none;
   padding: 0;
   margin: 1em 0;
+  li {
+    margin: 0 0 1em 0;
+  }
+}
+
+input {
+  display: block;
+  background-color: none;
+  border: 1px solid $form-color;
+  border-radius: $form-radius;
+  font-size: 1em;
+  padding: .2em .5em;
 }
 
 [checkbox] {
@@ -20,10 +32,13 @@ ul.examples {
   }
   input + i:before {
     content: "\00A0";
+    text-align: center;
+    font-style: normal;
+    font-weight: bold;
     display: inline-block;
     width: 1em;
     height: 1em;
-    line-height: 1;
+    line-height: .92;
     overflow: hidden;
     margin: 0 .25em 0 0;
     background-color: $form-color;
@@ -34,7 +49,8 @@ ul.examples {
   }
   input:checked + i:before {
     background-color: $form-color;
-    content: "\2713";
+    // content: "\2713";
+    content: "\00D7";
   }
 }
 
@@ -48,6 +64,7 @@ ul.examples {
     width: 1em;
     height: 1em;
     margin: 0 .25em 0 0;
+    top: .15em;
     background-color: $form-color;
     border-radius: $form-radius;
     border-radius: .5em;
@@ -61,7 +78,6 @@ ul.examples {
     left: ($form-aperture / 100% - 1) * -.5em;
     border-radius: 50%;
     opacity: 0;
-    @include transition(opacity .25s);
     @if lightness($form-color) < 60% {
       background-color: white;
     }
@@ -84,9 +100,11 @@ ul.examples {
     width: 2em;
     height: 1em;
     margin: 0 .25em 0 0;
+    top: .15em;
     background-color: $form-color;
     border-radius: $form-radius;
     border-radius: .5em;
+    @include transition(all .25s);
   }
   input + i:after {
     content: "";
@@ -96,7 +114,7 @@ ul.examples {
     top: ($form-aperture / 100% - 1) * -.5em;
     left: ($form-aperture / 100% - 1) * -.5em;
     border-radius: 50%;
-    @include transition(margin-left .25s);
+    @include transition(all .25s);
     @if lightness($form-color) < 60% {
       background-color: white;
     }
@@ -109,7 +127,7 @@ ul.examples {
   }
 }
 
-button, [type="button"] {
+button, [type="button"], [type="reset"], [type="submit"] {
   background-color: $form-color;
   border: none;
   border-radius: $form-radius;
