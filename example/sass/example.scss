@@ -1,8 +1,14 @@
 @import "compass";
 
-$form-color: #3C98EE;
-$form-radius: 3px;
-$form-aperture: 80%;
+$ui-color: #3C98EE;
+$ui-radius: 3px;
+$ui-aperture: 80%;
+$ui-depth: 10%;
+
+$ui-negitive: #F32C2C;
+$ui-positive: #2FD82F;
+$ui-warn: #F28C2C;
+$ui-disabled: #ccc;
 
 html {
   font-size: 2em;
@@ -20,8 +26,8 @@ ul.examples {
 input {
   display: block;
   background-color: none;
-  border: 1px solid $form-color;
-  border-radius: $form-radius;
+  border: 1px solid $ui-color;
+  border-radius: $ui-radius;
   font-size: 1em;
   padding: .2em .5em;
 }
@@ -41,19 +47,19 @@ input {
     line-height: .92;
     overflow: hidden;
     margin: 0 .25em 0 0;
-    background-color: $form-color;
-    border-radius: $form-radius;
-    @if lightness($form-color) < 60% {
+    background-color: $ui-color;
+    border-radius: $ui-radius;
+    @if lightness($ui-color) < 60% {
       color: white;
     }
   }
   input:checked + i:before {
-    background-color: $form-color;
+    background-color: $ui-color;
     // content: "\2713";
     content: "\00D7";
   }
   input:disabled + i:before {
-    background-color: desaturate($form-color, 100%);
+    background-color: $ui-disabled;
   }
 }
 
@@ -68,20 +74,20 @@ input {
     height: 1em;
     margin: 0 .25em 0 0;
     top: .15em;
-    background-color: $form-color;
-    border-radius: $form-radius;
+    background-color: $ui-color;
+    border-radius: $ui-radius;
     border-radius: .5em;
   }
   input + i:after {
     content: "";
-    width: $form-aperture / 100% * 1em;
-    height: $form-aperture / 100% * 1em;
+    width: $ui-aperture / 100% * 1em;
+    height: $ui-aperture / 100% * 1em;
     position: absolute;
-    top: ($form-aperture / 100% - 1) * -.5em;
-    left: ($form-aperture / 100% - 1) * -.5em;
+    top: ($ui-aperture / 100% - 1) * -.5em;
+    left: ($ui-aperture / 100% - 1) * -.5em;
     border-radius: 50%;
     opacity: 0;
-    @if lightness($form-color) < 60% {
+    @if lightness($ui-color) < 60% {
       background-color: white;
     }
     @else {
@@ -92,7 +98,7 @@ input {
     opacity: 1;
   }
   input:disabled + i {
-    background-color: desaturate($form-color, 100%);
+    background-color: $ui-disabled;
   }
 }
 
@@ -107,21 +113,21 @@ input {
     height: 1em;
     margin: 0 .25em 0 0;
     top: .15em;
-    background-color: $form-color;
-    border-radius: $form-radius;
+    background-color: $ui-color;
+    border-radius: $ui-radius;
     border-radius: .5em;
     @include transition(all .25s);
   }
   input + i:after {
     content: "";
-    width: $form-aperture / 100% * 1em;
-    height: $form-aperture / 100% * 1em;
+    width: $ui-aperture / 100% * 1em;
+    height: $ui-aperture / 100% * 1em;
     position: absolute;
-    top: ($form-aperture / 100% - 1) * -.5em;
-    left: ($form-aperture / 100% - 1) * -.5em;
+    top: ($ui-aperture / 100% - 1) * -.5em;
+    left: ($ui-aperture / 100% - 1) * -.5em;
     border-radius: 50%;
     @include transition(all .25s);
-    @if lightness($form-color) < 60% {
+    @if lightness($ui-color) < 60% {
       background-color: white;
     }
     @else {
@@ -132,7 +138,7 @@ input {
     margin-left: 1em;
   }
   input:disabled + i {
-    background-color: desaturate($form-color, 100%);
+    background-color: $ui-disabled;
     &:after {
       opacity: .5;
     }
@@ -140,15 +146,21 @@ input {
 }
 
 button, [type="button"], [type="reset"], [type="submit"] {
-  background-color: $form-color;
+  background-color: $ui-color;
   border: none;
-  border-radius: $form-radius;
+  border-radius: $ui-radius;
   font-size: 1em;
   padding: .25em .5em;
-  @if lightness($form-color) < 60% {
+  @if lightness($ui-color) < 60% {
     color: white;
   }
   @else {
     color: black;
+  }
+  &:hover {
+    background-color: lighten($ui-color, 5%);
+  }
+  &:active {
+    background-color: darken($ui-color, 10%);
   }
 }
