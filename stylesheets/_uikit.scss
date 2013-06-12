@@ -36,8 +36,8 @@ $ui-disabled: #ccc !default;
     line-height: .92;
     overflow: hidden;
     margin: 0 .25em 0 0;
-    background-color: $ui-color;
     border-radius: $ui-radius;
+    background-color: $ui-color;
     @if lightness($ui-color) < 60% {
       color: white;
     }
@@ -52,9 +52,6 @@ $ui-disabled: #ccc !default;
 
   // Pull in custom skin
   @include ui-skin($ui-context, $options);
-
-  // Custom style overrides
-  @content;
 }
 
 @mixin radio(
@@ -104,9 +101,6 @@ $ui-disabled: #ccc !default;
 
   // Pull in custom skin
   @include ui-skin($ui-context, $options);
-
-  // Custom style overrides
-  @content;
 }
 
 
@@ -162,9 +156,6 @@ $ui-disabled: #ccc !default;
 
   // Pull in custom skin
   @include ui-skin($ui-context, $options);
-
-  // Custom style overrides
-  @content;
 }
 
 @mixin button (
@@ -196,7 +187,4 @@ $ui-disabled: #ccc !default;
 
   // Pull in custom skin
   @include ui-skin($ui-context, $options);
-
-  // Custom style overrides
-  @content;
 }
