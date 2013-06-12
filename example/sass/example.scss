@@ -1,6 +1,6 @@
 @import "compass";
 
-$form-color: #3e63c4;
+$form-color: #3C98EE;
 $form-radius: 3px;
 $form-aperture: 80%;
 
@@ -52,6 +52,9 @@ input {
     // content: "\2713";
     content: "\00D7";
   }
+  input:disabled + i:before {
+    background-color: desaturate($form-color, 100%);
+  }
 }
 
 [radio] {
@@ -87,6 +90,9 @@ input {
   }
   input:checked + i:after {
     opacity: 1;
+  }
+  input:disabled + i {
+    background-color: desaturate($form-color, 100%);
   }
 }
 
@@ -124,6 +130,12 @@ input {
   }
   input:checked + i:after {
     margin-left: 1em;
+  }
+  input:disabled + i {
+    background-color: desaturate($form-color, 100%);
+    &:after {
+      opacity: .5;
+    }
   }
 }
 
