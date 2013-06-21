@@ -1,0 +1,48 @@
+@mixin radio(
+  $ui-color: $ui-color,
+  $ui-radius: $ui-radius,
+  $ui-disabled: $ui-disabled,
+  $options: null
+) {
+
+  $ui-context: radio;
+
+  input {
+    display: none;
+  }
+  input + i {
+    position: relative;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: 0 .25em 0 0;
+    top: .15em;
+    background-color: $ui-color;
+    border-radius: .5em;
+  }
+  input + i:after {
+    content: "";
+    width: $ui-aperture / 100% * 1em;
+    height: $ui-aperture / 100% * 1em;
+    position: absolute;
+    top: ($ui-aperture / 100% - 1) * -.5em;
+    left: ($ui-aperture / 100% - 1) * -.5em;
+    border-radius: 50%;
+    opacity: 0;
+    @if lightness($ui-color) < 60% {
+      background-color: white;
+    }
+    @else {
+      background-color: black;
+    }
+  }
+  input:checked + i:after {
+    opacity: 1;
+  }
+  input:disabled + i {
+    background-color: $ui-disabled;
+  }
+
+  // Pull in custom skin
+  @include ui-skin($ui-context, $options);
+}

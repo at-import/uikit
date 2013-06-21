@@ -1,0 +1,30 @@
+@mixin button (
+  $ui-color: $ui-color,
+  $ui-radius: $ui-radius,
+  $ui-disabled: $ui-disabled,
+  $options: null
+) {
+
+  $ui-context: radio;
+
+  background-color: $ui-color;
+  border: none;
+  border-radius: $ui-radius;
+  font-size: 1em;
+  padding: .25em .5em;
+  @if lightness($ui-color) < 60% {
+    color: white;
+  }
+  @else {
+    color: black;
+  }
+  &:hover {
+    background-color: lighten($ui-color, 5%);
+  }
+  &:active {
+    background-color: darken($ui-color, 10%);
+  }
+
+  // Pull in custom skin
+  @include ui-skin($ui-context, $options);
+}

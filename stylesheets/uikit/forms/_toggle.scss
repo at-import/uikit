@@ -1,0 +1,53 @@
+@mixin toggle(
+  $ui-color: $ui-color,
+  $ui-radius: $ui-radius,
+  $ui-disabled: $ui-disabled,
+  $options: null
+) {
+
+  $ui-context: radio;
+
+  input {
+    display: none;
+  }
+  input + i {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 1em;
+    margin: 0 .25em 0 0;
+    top: .15em;
+    background-color: $ui-color;
+    border-radius: $ui-radius;
+    border-radius: .5em;
+    @include transition(all .25s);
+  }
+  input + i:after {
+    content: "";
+    width: $ui-aperture / 100% * 1em;
+    height: $ui-aperture / 100% * 1em;
+    position: absolute;
+    top: ($ui-aperture / 100% - 1) * -.5em;
+    left: ($ui-aperture / 100% - 1) * -.5em;
+    border-radius: 50%;
+    @include transition(all .25s);
+    @if lightness($ui-color) < 60% {
+      background-color: white;
+    }
+    @else {
+      background-color: black;
+    }
+  }
+  input:checked + i:after {
+    margin-left: 1em;
+  }
+  input:disabled + i {
+    background-color: $ui-disabled;
+    &:after {
+      opacity: .5;
+    }
+  }
+
+  // Pull in custom skin
+  @include ui-skin($ui-context, $options);
+}
