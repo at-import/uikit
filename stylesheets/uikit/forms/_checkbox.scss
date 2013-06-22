@@ -11,15 +11,15 @@
     display: none;
   }
   input + i:before {
+    font-family: uikit;
     content: "\00A0";
     text-align: center;
     font-style: normal;
-    font-weight: bold;
     display: inline-block;
     width: 1em;
     height: 1em;
     vertical-align: top;
-    line-height: .92;
+    line-height: 1.08;
     overflow: hidden;
     margin: 0 .25em 0 0;
     border-radius: $ui-radius;
@@ -30,7 +30,7 @@
   }
   input:checked + i:before {
     background-color: $ui-color;
-    content: "\00D7";
+    content: "\2716";
   }
   input:disabled + i:before {
     background-color: $ui-disabled;
