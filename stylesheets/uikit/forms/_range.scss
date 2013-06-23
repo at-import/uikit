@@ -1,0 +1,28 @@
+@mixin range(
+  $ui-color: $ui-color,
+  $ui-radius: $ui-radius,
+  $input-border: $input-border,
+  $options: null
+) {
+
+  $ui-context: range;
+
+  -webkit-appearance: none;
+  background-color: $ui-color;
+  height: 1em;
+  border-radius: .5em;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 0 (($ui-aperture / 100% * -.5em) + .5em);
+
+  &::-webkit-slider-thumb {
+     -webkit-appearance: none;
+      background-color: white;
+      width: $ui-aperture / 100% * 1em;
+      height: $ui-aperture / 100% * 1em;
+      border-radius: 50%;
+  }
+  // Pull in custom skin
+  @include ui-skin($ui-context, $options);
+}

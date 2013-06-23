@@ -25,6 +25,18 @@ input[type="search"] {
   @include search;
 }
 
+input[type="range"] {
+  @include range;
+}
+
+progress {
+  @include progress;
+}
+
+.progress {
+  @include progress;
+}
+
 [checkbox] {
   @include checkbox;
 }
@@ -37,6 +49,6 @@ input[type="search"] {
   @include toggle;
 }
 
-button, [type="button"], [type="reset"], [type="submit"] {
+button, input[type="button"], input[type="reset"], input[type="submit"] {
   @include button;
 }
