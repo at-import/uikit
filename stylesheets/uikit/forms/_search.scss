@@ -1,0 +1,49 @@
+@mixin search(
+  $ui-color: $ui-color,
+  $ui-radius: $ui-radius,
+  $input-border: $input-border,
+  $options: null
+) {
+
+  $ui-context: search;
+
+  -webkit-appearance: textfield;
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+  &::-webkit-search-cancel-button {
+    font-family: uikit;
+    width: 1em;
+    height: 1em;
+    background-color: $ui-color;
+    color: #fff;
+    border-radius: 50%;
+    &:before {
+      content: "\2716";
+      color: #fff;
+      font-size: .75em;
+      position: relative;
+      top: -.1em;
+      left: .175em;
+    }
+  }
+
+
+  font-size: 1em;
+  border: $input-border solid $ui-color;
+  border-radius: .8em;
+  padding: .2em .3em;
+  outline: none;
+  &:focus {
+    @include box-shadow(0 0 0 2px $ui-color);
+  }
+
+  &::-webkit-input-placeholder {
+    color: $ui-disabled;
+  }
+
+  // Pull in custom skin
+  @include ui-skin($ui-context, $options);
+}

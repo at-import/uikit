@@ -1,0 +1,26 @@
+@mixin input(
+  $ui-color: $ui-color,
+  $ui-radius: $ui-radius,
+  $input-border: $input-border,
+  $options: null
+) {
+
+  $ui-context: input;
+
+  font-size: 1em;
+  border: $input-border solid $ui-color;
+  border-radius: $ui-radius;
+  padding: .2em .3em;
+  outline: none;
+
+  &:focus {
+    @include box-shadow(0 0 0 2px $ui-color);
+  }
+
+  &::-webkit-input-placeholder {
+    color: $ui-disabled;
+  }
+
+  // Pull in custom skin
+  @include ui-skin($ui-context, $options);
+}

@@ -13,6 +13,18 @@ ul.examples {
   }
 }
 
+input {
+  @include input;
+}
+
+textarea {
+  @include textarea;
+}
+
+input[type="search"] {
+  @include search;
+}
+
 [checkbox] {
   @include checkbox;
 }
