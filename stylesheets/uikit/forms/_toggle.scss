@@ -20,7 +20,6 @@
     background-color: $ui-color;
     border-radius: $ui-radius;
     border-radius: .5em;
-    @include transition(all .25s);
   }
   input + i:after {
     content: "";
@@ -30,7 +29,7 @@
     top: ($ui-aperture / 100% - 1) * -.5em;
     left: ($ui-aperture / 100% - 1) * -.5em;
     border-radius: 50%;
-    @include transition(all .25s);
+    @include transition(all $ui-speed);
     @if lightness($ui-color) < 60% {
       background-color: white;
     }
