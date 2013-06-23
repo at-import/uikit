@@ -7,10 +7,11 @@
 
   $ui-context: radio;
 
+  font-size: 1em;
+  font-family: inherit;
   background-color: $ui-color;
   border: none;
   border-radius: $ui-radius;
-  font-size: 1em;
   padding: .25em .5em;
   @if lightness($ui-color) < 60% {
     color: white;
