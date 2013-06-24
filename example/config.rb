@@ -7,3 +7,5 @@ add_import_path '../stylesheets'
 http_path = 'html'
 css_dir = 'css'
 sass_dir = 'sass'
+
+output_style = :compressed
