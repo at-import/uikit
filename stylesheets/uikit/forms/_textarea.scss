@@ -1,7 +1,7 @@
 @mixin textarea(
   $ui-color: $ui-color,
   $ui-radius: $ui-radius,
-  $input-border: $input-border,
+  $ui-border: $ui-border,
   $options: null
 ) {
 
@@ -9,7 +9,7 @@
 
   font-size: 1em;
   font-family: inherit;
-  border: $input-border solid $ui-color;
+  border: $ui-border solid $ui-color;
   border-radius: $ui-radius;
   padding: .2em .3em;
   outline: none;

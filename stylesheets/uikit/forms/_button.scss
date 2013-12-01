@@ -1,5 +1,6 @@
 @mixin button (
   $ui-color: $ui-color,
+  $ui-background: $ui-background,
   $ui-radius: $ui-radius,
   $ui-disabled: $ui-disabled,
   $options: null

@@ -1,0 +1,10 @@
+$ui-options: null;
+
+@function ui-opt($option, $options: $ui-options) {
+	@each $item in $options {
+		@if $item == $option {
+			@return true;
+		}
+	}
+	@return false;
+}
