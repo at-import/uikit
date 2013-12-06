@@ -1,0 +1,13 @@
+{
+  "name": "protui",
+  "version": "0.0.1",
+  "main": "stylesheets/_protui.scss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+  // "dependencies": {
+  //   "dependency": ">=1.0"
+  // }
+}
